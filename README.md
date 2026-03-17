@@ -70,7 +70,9 @@ npm run dev:commodity  # commodity.worldmonitor.app
 npm run dev:happy      # happy.worldmonitor.app
 ```
 
-See the **[self-hosting guide](https://docs.worldmonitor.app/getting-started)** for deployment options (Vercel, Docker, static).
+See **[LOCAL_SETUP.md](./LOCAL_SETUP.md)** for a full walkthrough — forking, environment variables, TaskDock profiles, updating, and troubleshooting.
+
+For cloud deployment options (Vercel, Docker, static), see the **[self-hosting guide](https://docs.worldmonitor.app/getting-started)**.
 
 ---
 

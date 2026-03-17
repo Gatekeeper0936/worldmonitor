@@ -1202,6 +1202,9 @@ export const SOURCE_REGION_MAP: Record<string, { labelKey: string; feedKeys: str
   middleeast: { labelKey: 'header.sourceRegionMiddleEast', feedKeys: ['middleeast'] },
   africa: { labelKey: 'header.sourceRegionAfrica', feedKeys: ['africa'] },
   latam: { labelKey: 'header.sourceRegionLatAm', feedKeys: ['latam'] },
+  // 'philippines' feeds are intentionally included here AND defined as a standalone
+  // key so they (a) appear under the Asia-Pacific region filter and (b) also power
+  // the dedicated Philippines News panel (panel ID: 'philippines').
   asia: { labelKey: 'header.sourceRegionAsiaPacific', feedKeys: ['asia', 'philippines'] },
   topical: { labelKey: 'header.sourceRegionTopical', feedKeys: ['energy', 'tech', 'ai', 'finance', 'layoffs', 'thinktanks'] },
   intel: { labelKey: 'header.sourceRegionIntel', feedKeys: [] },
