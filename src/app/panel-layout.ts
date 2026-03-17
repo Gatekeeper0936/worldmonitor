@@ -396,9 +396,9 @@ export class PanelLayoutManager implements AppModule {
     if (!panelsGrid) return;
 
     if (enabledPanels === null) {
-      // Show all panels
+      // Show all panels – remove inline display overrides so CSS cascade takes over
       panelsGrid.querySelectorAll<HTMLElement>('[data-panel]').forEach(el => {
-        el.style.display = '';
+        el.style.removeProperty('display');
       });
       return;
     }
@@ -406,7 +406,11 @@ export class PanelLayoutManager implements AppModule {
     const enabledSet = new Set(enabledPanels);
     panelsGrid.querySelectorAll<HTMLElement>('[data-panel]').forEach(el => {
       const id = el.getAttribute('data-panel');
-      el.style.display = id && enabledSet.has(id) ? '' : 'none';
+      if (id && enabledSet.has(id)) {
+        el.style.removeProperty('display');
+      } else {
+        el.style.display = 'none';
+      }
     });
   }
 

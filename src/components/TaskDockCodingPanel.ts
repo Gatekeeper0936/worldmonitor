@@ -118,18 +118,20 @@ export class TaskDockCodingPanel extends Panel {
       }
 
       if (tool.localCmd) {
+        const cmdText = `📋 ${tool.localCmd}`;
         const copyBtn = h('button', {
           className: 'taskdock-tool-btn taskdock-tool-btn--copy',
           title: `Copy local launch command: ${escapeHtml(tool.localCmd)}`,
-        }, '📋 ' + escapeHtml(tool.localCmd));
+        }, cmdText);
         copyBtn.addEventListener('click', async (e) => {
           e.stopPropagation();
           try {
             await navigator.clipboard.writeText(tool.localCmd!);
             copyBtn.textContent = '✅ Copied!';
-            setTimeout(() => { copyBtn.textContent = '📋 ' + tool.localCmd!; }, 1500);
+            setTimeout(() => { copyBtn.textContent = cmdText; }, 1500);
           } catch {
             copyBtn.textContent = '❌ Copy failed';
+            setTimeout(() => { copyBtn.textContent = cmdText; }, 1500);
           }
         });
         actions.appendChild(copyBtn);

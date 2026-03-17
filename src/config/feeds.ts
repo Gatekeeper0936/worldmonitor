@@ -718,12 +718,6 @@ const FULL_FEEDS: Record<string, Feed[]> = {
     { name: 'Guardian Australia', url: rss('https://www.theguardian.com/australia-news/rss') },
     // Pacific Islands
     { name: 'Island Times (Palau)', url: rss('https://islandtimes.org/feed/') },
-    // Philippines
-    { name: 'Inquirer.net', url: rss('https://news.google.com/rss/search?q=site:inquirer.net+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
-    { name: 'Philippine Star', url: rss('https://news.google.com/rss/search?q=site:philstar.com+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
-    { name: 'Manila Bulletin', url: rss('https://news.google.com/rss/search?q=site:mb.com.ph+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
-    { name: 'ABS-CBN News', url: rss('https://news.google.com/rss/search?q=site:abs-cbn.com+news+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
-    { name: 'GMA News', url: rss('https://news.google.com/rss/search?q=site:gmanetwork.com+news+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
   ],
   philippines: [
     { name: 'Inquirer.net', url: rss('https://news.google.com/rss/search?q=site:inquirer.net+when:1d&hl=en-US&gl=PH&ceid=PH:en') },

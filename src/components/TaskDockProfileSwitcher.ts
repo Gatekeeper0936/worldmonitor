@@ -250,7 +250,7 @@ export class TaskDockProfileSwitcher {
     const ids: string[] = [];
     panelsGrid.querySelectorAll<HTMLElement>('[data-panel]').forEach(el => {
       const id = el.getAttribute('data-panel');
-      if (id) ids.push(id);
+      if (id && el.style.display !== 'none') ids.push(id);
     });
     return ids;
   }
