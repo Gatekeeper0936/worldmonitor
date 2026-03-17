@@ -2144,3 +2144,321 @@
 .deduction-result h3 { margin-top: 12px; margin-bottom: 4px; font-size: 1.1em; color: var(--text-bright, #fff); }
 .deduction-result ul { padding-left: 20px; margin-top: 4px; }
 .deduction-result li { margin-bottom: 4px; }
+/* ── TaskDock: Coding Launchers Panel ─────────────────────────────────── */
+.taskdock-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  padding: 8px;
+}
+
+.taskdock-tool-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 10px;
+  background: var(--surface, #1e1e1e);
+  border: 1px solid var(--border, #333);
+  border-radius: 8px;
+  transition: border-color 0.15s;
+}
+
+.taskdock-tool-card:hover {
+  border-color: var(--accent, #4ade80);
+}
+
+.taskdock-tool-icon {
+  font-size: 1.4em;
+}
+
+.taskdock-tool-label {
+  font-weight: 600;
+  font-size: 0.82em;
+  color: var(--text-primary, #e5e5e5);
+}
+
+.taskdock-tool-desc {
+  font-size: 0.72em;
+  color: var(--text-muted, #888);
+  line-height: 1.3;
+}
+
+.taskdock-tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.taskdock-tool-btn {
+  font-size: 0.7em;
+  padding: 3px 7px;
+  background: var(--surface-hover, #2a2a2a);
+  border: 1px solid var(--border, #333);
+  border-radius: 5px;
+  color: var(--text-secondary, #ccc);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.taskdock-tool-btn:hover {
+  background: var(--accent, #4ade80);
+  color: #000;
+  border-color: var(--accent, #4ade80);
+}
+
+.taskdock-tips-box {
+  margin: 8px;
+  padding: 10px;
+  background: var(--surface, #1e1e1e);
+  border: 1px solid var(--border, #333);
+  border-radius: 8px;
+}
+
+.taskdock-tips-title {
+  font-size: 0.78em;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-primary, #e5e5e5);
+}
+
+.taskdock-tip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 0;
+}
+
+.taskdock-tip-cmd {
+  flex: 1;
+  font-size: 0.75em;
+  color: var(--accent, #4ade80);
+  font-family: monospace;
+}
+
+.taskdock-tip-copy {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.78em;
+  opacity: 0.7;
+  padding: 2px 4px;
+}
+
+.taskdock-tip-copy:hover { opacity: 1; }
+
+/* ── TaskDock: Social Panel ───────────────────────────────────────────── */
+.taskdock-social-intro {
+  font-size: 0.75em;
+  color: var(--text-muted, #888);
+  padding: 8px 10px 4px;
+  margin: 0;
+}
+
+.taskdock-social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+  padding: 8px;
+}
+
+.taskdock-social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 10px;
+  background: var(--surface, #1e1e1e);
+  border: 1px solid var(--border, #333);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.taskdock-social-card:hover,
+.taskdock-social-card:focus-within {
+  border-color: var(--social-color, var(--accent, #4ade80));
+  box-shadow: 0 0 0 1px var(--social-color, var(--accent, #4ade80)) inset;
+}
+
+.taskdock-social-icon {
+  font-size: 1.5em;
+}
+
+.taskdock-social-label {
+  font-weight: 600;
+  font-size: 0.82em;
+  color: var(--text-primary, #e5e5e5);
+}
+
+.taskdock-social-desc {
+  font-size: 0.7em;
+  color: var(--text-muted, #888);
+  line-height: 1.3;
+}
+
+.taskdock-social-btn-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.taskdock-social-btn {
+  font-size: 0.68em;
+  padding: 3px 7px;
+  background: var(--surface-hover, #2a2a2a);
+  border: 1px solid var(--border, #333);
+  border-radius: 5px;
+  color: var(--text-secondary, #ccc);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.taskdock-social-btn:hover {
+  background: var(--social-color, var(--accent, #4ade80));
+  color: #fff;
+  border-color: var(--social-color, var(--accent, #4ade80));
+}
+
+/* ── TaskDock: Profile Switcher ───────────────────────────────────────── */
+.taskdock-profile-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.taskdock-profile-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  background: var(--surface, #1e1e1e);
+  border: 1px solid var(--border, #333);
+  border-radius: 20px;
+  color: var(--text-secondary, #ccc);
+  font-size: 0.75em;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.taskdock-profile-trigger:hover {
+  background: var(--surface-hover, #2a2a2a);
+  border-color: var(--accent, #4ade80);
+  color: var(--text-primary, #e5e5e5);
+}
+
+.taskdock-profile-icon { font-size: 1em; }
+.taskdock-profile-chevron { font-size: 0.7em; opacity: 0.7; }
+
+.taskdock-profile-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 220px;
+  background: var(--surface, #1a1a1a);
+  border: 1px solid var(--border, #333);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 1200;
+  overflow: hidden;
+}
+
+.taskdock-dropdown-header {
+  padding: 8px 12px;
+  font-size: 0.68em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #888);
+  border-bottom: 1px solid var(--border, #333);
+}
+
+.taskdock-dropdown-divider {
+  height: 1px;
+  background: var(--border, #333);
+  margin: 4px 0;
+}
+
+.taskdock-profile-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.8em;
+  color: var(--text-secondary, #ccc);
+  transition: background 0.1s;
+}
+
+.taskdock-profile-option:hover {
+  background: var(--surface-hover, #2a2a2a);
+}
+
+.taskdock-profile-option--active {
+  color: var(--accent, #4ade80);
+  font-weight: 600;
+}
+
+.taskdock-option-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.taskdock-option-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-left: 6px;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.taskdock-profile-option:hover .taskdock-option-actions {
+  opacity: 1;
+}
+
+.taskdock-option-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  padding: 2px 4px;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: background 0.1s, opacity 0.1s;
+}
+
+.taskdock-option-btn:hover { opacity: 1; background: var(--surface-hover, #333); }
+.taskdock-option-btn--delete:hover { color: #ef4444; }
+
+.taskdock-profile-new-btn,
+.taskdock-profile-save-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.78em;
+  color: var(--accent, #4ade80);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.taskdock-profile-new-btn:hover,
+.taskdock-profile-save-btn:hover {
+  background: var(--surface-hover, #2a2a2a);
+}
+
+.taskdock-profile-save-btn {
+  color: var(--text-muted, #888);
+  border-top: 1px solid var(--border, #333);
+}

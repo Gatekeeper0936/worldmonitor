@@ -718,6 +718,24 @@ const FULL_FEEDS: Record<string, Feed[]> = {
     { name: 'Guardian Australia', url: rss('https://www.theguardian.com/australia-news/rss') },
     // Pacific Islands
     { name: 'Island Times (Palau)', url: rss('https://islandtimes.org/feed/') },
+    // Philippines
+    { name: 'Inquirer.net', url: rss('https://news.google.com/rss/search?q=site:inquirer.net+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'Philippine Star', url: rss('https://news.google.com/rss/search?q=site:philstar.com+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'Manila Bulletin', url: rss('https://news.google.com/rss/search?q=site:mb.com.ph+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'ABS-CBN News', url: rss('https://news.google.com/rss/search?q=site:abs-cbn.com+news+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'GMA News', url: rss('https://news.google.com/rss/search?q=site:gmanetwork.com+news+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+  ],
+  philippines: [
+    { name: 'Inquirer.net', url: rss('https://news.google.com/rss/search?q=site:inquirer.net+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'Philippine Star', url: rss('https://news.google.com/rss/search?q=site:philstar.com+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'Manila Bulletin', url: rss('https://news.google.com/rss/search?q=site:mb.com.ph+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'ABS-CBN News', url: rss('https://news.google.com/rss/search?q=site:abs-cbn.com+news+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'GMA News', url: rss('https://news.google.com/rss/search?q=site:gmanetwork.com+news+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'Rappler', url: rss('https://news.google.com/rss/search?q=site:rappler.com+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'BusinessWorld PH', url: rss('https://news.google.com/rss/search?q=site:bworldonline.com+when:2d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'CNN Philippines', url: rss('https://news.google.com/rss/search?q=site:cnnphilippines.com+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'Philippine News Agency', url: rss('https://news.google.com/rss/search?q=site:pna.gov.ph+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
+    { name: 'Manila Times', url: rss('https://news.google.com/rss/search?q=site:manilatimes.net+when:1d&hl=en-US&gl=PH&ceid=PH:en') },
   ],
   energy: [
     { name: 'Oil & Gas', url: rss('https://news.google.com/rss/search?q=(oil+price+OR+OPEC+OR+"natural+gas"+OR+pipeline+OR+LNG)+when:2d&hl=en-US&gl=US&ceid=US:en') },
@@ -1190,7 +1208,7 @@ export const SOURCE_REGION_MAP: Record<string, { labelKey: string; feedKeys: str
   middleeast: { labelKey: 'header.sourceRegionMiddleEast', feedKeys: ['middleeast'] },
   africa: { labelKey: 'header.sourceRegionAfrica', feedKeys: ['africa'] },
   latam: { labelKey: 'header.sourceRegionLatAm', feedKeys: ['latam'] },
-  asia: { labelKey: 'header.sourceRegionAsiaPacific', feedKeys: ['asia'] },
+  asia: { labelKey: 'header.sourceRegionAsiaPacific', feedKeys: ['asia', 'philippines'] },
   topical: { labelKey: 'header.sourceRegionTopical', feedKeys: ['energy', 'tech', 'ai', 'finance', 'layoffs', 'thinktanks'] },
   intel: { labelKey: 'header.sourceRegionIntel', feedKeys: [] },
 
