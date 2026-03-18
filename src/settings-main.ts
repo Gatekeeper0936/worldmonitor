@@ -223,7 +223,7 @@ function renderOverview(area: HTMLElement): void {
         <p class="wm-section-desc">${t('modals.settingsWindow.worldMonitor.apiKey.description')}</p>
         <div class="wm-key-row">
           <div class="wm-input-wrap">
-            <input type="password" class="wm-input" data-wm-key-input
+            <input type="password" class="wm-input" id="wm-api-key-input" name="wm-api-key" data-wm-key-input
               placeholder="${t('modals.settingsWindow.worldMonitor.apiKey.placeholder')}"
               autocomplete="off" spellcheck="false"
               ${wmState.present ? `value="${MASKED_SENTINEL}"` : ''} />
@@ -301,7 +301,7 @@ function renderFeatureSection(area: HTMLElement, cat: SettingsCategory): void {
         <div class="settings-feat-header" data-feat-toggle-expand="${feature.id}">
           <label class="settings-feat-toggle-label" data-click-stop>
             <div class="settings-feat-switch">
-              <input type="checkbox" data-toggle="${feature.id}" ${enabled ? 'checked' : ''} />
+              <input type="checkbox" id="feature-toggle-${feature.id}" name="feature-toggle-${feature.id}" data-toggle="${feature.id}" ${enabled ? 'checked' : ''} />
               <span class="settings-feat-slider"></span>
             </div>
           </label>
@@ -356,10 +356,10 @@ function renderSecretInput(key: RuntimeSecretKey, _featureId: RuntimeFeatureId):
       <div class="settings-secret-row">
         <div class="settings-secret-label">${escapeHtml(label)}</div>
         <span class="settings-secret-status ${statusClass}">${escapeHtml(statusText)}</span>
-        <select data-model-select data-feature="${_featureId}" class="${inputClass}">
+        <select id="model-select-${_featureId}" name="model-select-${_featureId}" data-model-select data-feature="${_featureId}" class="${inputClass}">
           ${storedModel ? `<option value="${escapeHtml(storedModel)}" selected>${escapeHtml(storedModel)}</option>` : '<option value="" selected disabled>Loading models...</option>'}
         </select>
-        <input type="text" data-model-manual data-feature="${_featureId}" class="${inputClass} hidden-input"
+        <input type="text" id="model-manual-${_featureId}" name="model-manual-${_featureId}" data-model-manual data-feature="${_featureId}" class="${inputClass} hidden-input"
           placeholder="Or type model name" autocomplete="off"
           ${storedModel ? `value="${escapeHtml(storedModel)}"` : ''}>
         ${hintText ? `<span class="settings-secret-hint">${escapeHtml(hintText)}</span>` : ''}
@@ -376,7 +376,7 @@ function renderSecretInput(key: RuntimeSecretKey, _featureId: RuntimeFeatureId):
       <div class="settings-secret-label">${escapeHtml(label)}</div>
       <span class="settings-secret-status ${statusClass}">${escapeHtml(statusText)}</span>
       <div class="settings-input-wrapper${showGetKey ? ' has-suffix' : ''}">
-        <input type="${isPlaintext ? 'text' : 'password'}" data-secret="${key}" data-feature="${_featureId}"
+        <input type="${isPlaintext ? 'text' : 'password'}" id="secret-${key}" name="${key}" data-secret="${key}" data-feature="${_featureId}"
           placeholder="${pending ? 'Staged' : 'Enter value...'}" autocomplete="off" class="${inputClass}"
           ${pending ? `value="${isPlaintext ? escapeHtml(settingsManager.getPending(key) || '') : MASKED_SENTINEL}"` : (isPlaintext && state.present ? `value="${escapeHtml(getRuntimeConfigSnapshot().secrets[key]?.value || '')}"` : '')}>
         ${getKeyHtml}
@@ -817,7 +817,7 @@ function handleSearch(query: string): void {
         <div class="settings-feat-header" data-feat-toggle-expand="${feature.id}">
           <label class="settings-feat-toggle-label" data-click-stop>
             <div class="settings-feat-switch">
-              <input type="checkbox" data-toggle="${feature.id}" ${enabled ? 'checked' : ''} />
+              <input type="checkbox" id="feature-toggle-${feature.id}" name="feature-toggle-${feature.id}" data-toggle="${feature.id}" ${enabled ? 'checked' : ''} />
               <span class="settings-feat-slider"></span>
             </div>
           </label>
