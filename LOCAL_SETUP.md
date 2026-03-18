@@ -173,7 +173,47 @@ npm run preview       # Vite's built-in preview server (localhost:4173)
 
 ---
 
-## 8. Keeping Your Clone Up to Date
+## 8. Pull the TaskDock Update to Your Local Machine
+
+The TaskDock features (Profile Switcher, Coding Launchers, Social Feed panel, Philippines News panel) live on the `copilot/automate-taskdock-dashboard` branch. Use the steps below to get them running locally **right now**, before the PR is merged to `main`.
+
+### If you cloned the repo directly
+
+```bash
+# In your existing local clone:
+git fetch origin
+git checkout copilot/automate-taskdock-dashboard
+npm install          # pick up any new dependencies
+npm run dev          # open http://localhost:5173
+```
+
+### If you forked the repo
+
+```bash
+# Add the upstream remote (once only)
+git remote add upstream https://github.com/Gatekeeper0936/worldmonitor.git
+
+# Fetch the branch and check it out
+git fetch upstream copilot/automate-taskdock-dashboard
+git checkout -b copilot/automate-taskdock-dashboard upstream/copilot/automate-taskdock-dashboard
+npm install
+npm run dev
+```
+
+### After the PR is merged to `main`
+
+Once the pull request is approved and merged, switch back to `main` to get the latest:
+
+```bash
+git checkout main
+git pull origin main   # (or: git pull upstream main  — if you forked)
+npm install
+npm run dev
+```
+
+---
+
+## 9. Keeping Your Clone Up to Date
 
 ### If you cloned directly:
 
@@ -213,7 +253,7 @@ Then open a Pull Request from your fork's branch to `Gatekeeper0936/worldmonitor
 
 ---
 
-## 9. Useful Commands Reference
+## 10. Useful Commands Reference
 
 | Command | What it does |
 |---|---|
@@ -230,7 +270,7 @@ Then open a Pull Request from your fork's branch to `Gatekeeper0936/worldmonitor
 
 ---
 
-## 10. Troubleshooting
+## 11. Troubleshooting
 
 ### Port already in use
 
