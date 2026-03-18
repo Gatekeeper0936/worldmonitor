@@ -34,7 +34,7 @@ const FULL_PANELS: Record<string, PanelConfig> = {
   africa: { name: 'Africa', enabled: true, priority: 1 },
   latam: { name: 'Latin America', enabled: true, priority: 1 },
   asia: { name: 'Asia-Pacific', enabled: true, priority: 1 },
-  energy: { name: 'Energy & Resources', enabled: true, priority: 1 },
+  philippines: { name: 'Philippines News', enabled: true, priority: 1 },
   gov: { name: 'Government', enabled: true, priority: 1 },
   thinktanks: { name: 'Think Tanks', enabled: true, priority: 1 },
   polymarket: { name: 'Predictions', enabled: true, priority: 1 },
@@ -70,6 +70,8 @@ const FULL_PANELS: Record<string, PanelConfig> = {
   'airline-intel': { name: 'Airline Intelligence', enabled: true, priority: 2 },
   'tech-readiness': { name: 'Tech Readiness Index', enabled: true, priority: 2 },
   'world-clock': { name: 'World Clock', enabled: true, priority: 2 },
+  'taskdock-coding': { name: 'Coding Launchers', enabled: true, priority: 2 },
+  'taskdock-social': { name: 'Social Feed', enabled: true, priority: 2 },
 };
 
 const FULL_MAP_LAYERS: MapLayers = {

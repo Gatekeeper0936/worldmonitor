@@ -63,3 +63,7 @@ export * from './MilitaryCorrelationPanel';
 export * from './EscalationCorrelationPanel';
 export * from './EconomicCorrelationPanel';
 export * from './DisasterCorrelationPanel';
+
+export * from './TaskDockCodingPanel';
+export * from './TaskDockSocialPanel';
+export * from './TaskDockProfileSwitcher';

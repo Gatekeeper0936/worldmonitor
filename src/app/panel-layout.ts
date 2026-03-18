@@ -45,6 +45,10 @@ import {
   DisasterCorrelationPanel,
 } from '@/components';
 import { SatelliteFiresPanel } from '@/components/SatelliteFiresPanel';
+import { TaskDockCodingPanel } from '@/components/TaskDockCodingPanel';
+import { TaskDockSocialPanel } from '@/components/TaskDockSocialPanel';
+import { TaskDockProfileSwitcher } from '@/components/TaskDockProfileSwitcher';
+import { seedDefaultProfiles, switchProfile, getActiveProfile, subscribeProfiles } from '@/services/taskdock-profiles';
 import { focusInvestmentOnMap } from '@/services/investments-focus';
 import { debounce, saveToStorage, loadFromStorage } from '@/utils';
 import { escapeHtml } from '@/utils/sanitize';
@@ -226,6 +230,7 @@ export class PanelLayoutManager implements AppModule {
           ${this.ctx.isDesktopApp ? '' : `<button class="fullscreen-btn" id="fullscreenBtn" title="${t('header.fullscreen')}">⛶</button>`}
           ${SITE_VARIANT === 'happy' ? `<button class="tv-mode-btn" id="tvModeBtn" title="TV Mode (Shift+T)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></button>` : ''}
           <span id="unifiedSettingsMount"></span>
+          <span id="taskdockProfileMount"></span>
         </div>
       </div>
       <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
@@ -353,10 +358,60 @@ export class PanelLayoutManager implements AppModule {
     `;
 
     this.createPanels();
+    this.initTaskDockProfileSwitcher();
 
     if (this.ctx.isMobile) {
       this.setupMobileMapToggle();
     }
+  }
+
+  private initTaskDockProfileSwitcher(): void {
+    const mount = document.getElementById('taskdockProfileMount');
+    if (!mount) return;
+
+    // Seed default profiles if none exist, using the current set of panel IDs
+    const allPanelIds = Object.keys(this.ctx.panels);
+    seedDefaultProfiles(allPanelIds);
+
+    const switcher = new TaskDockProfileSwitcher((profile, enabledPanels) => {
+      this.applyTaskDockProfile(enabledPanels);
+    });
+    mount.appendChild(switcher.getElement());
+
+    // Apply the currently active profile on mount
+    const active = getActiveProfile();
+    if (active) {
+      this.applyTaskDockProfile(active.enabledPanels);
+    }
+
+    // Keep profile in sync when changed from elsewhere
+    subscribeProfiles(() => {
+      const current = getActiveProfile();
+      this.applyTaskDockProfile(current?.enabledPanels ?? null);
+    });
+  }
+
+  private applyTaskDockProfile(enabledPanels: string[] | null): void {
+    const panelsGrid = document.getElementById('panelsGrid');
+    if (!panelsGrid) return;
+
+    if (enabledPanels === null) {
+      // Show all panels – remove inline display overrides so CSS cascade takes over
+      panelsGrid.querySelectorAll<HTMLElement>('[data-panel]').forEach(el => {
+        el.style.removeProperty('display');
+      });
+      return;
+    }
+
+    const enabledSet = new Set(enabledPanels);
+    panelsGrid.querySelectorAll<HTMLElement>('[data-panel]').forEach(el => {
+      const id = el.getAttribute('data-panel');
+      if (id && enabledSet.has(id)) {
+        el.style.removeProperty('display');
+      } else {
+        el.style.display = 'none';
+      }
+    });
   }
 
   private setupMobileMapToggle(): void {
@@ -574,6 +629,7 @@ export class PanelLayoutManager implements AppModule {
     this.createNewsPanel('africa', 'panels.africa');
     this.createNewsPanel('latam', 'panels.latam');
     this.createNewsPanel('asia', 'panels.asia');
+    this.createNewsPanel('philippines', 'panels.philippines');
     this.createNewsPanel('energy', 'panels.energy');
 
     for (const key of Object.keys(FEEDS)) {
@@ -751,6 +807,14 @@ export class PanelLayoutManager implements AppModule {
 
     if (this.shouldCreatePanel('world-clock')) {
       this.ctx.panels['world-clock'] = new WorldClockPanel();
+    }
+
+    if (this.shouldCreatePanel('taskdock-coding')) {
+      this.ctx.panels['taskdock-coding'] = new TaskDockCodingPanel();
+    }
+
+    if (this.shouldCreatePanel('taskdock-social')) {
+      this.ctx.panels['taskdock-social'] = new TaskDockSocialPanel();
     }
 
     if (this.shouldCreatePanel('airline-intel')) {

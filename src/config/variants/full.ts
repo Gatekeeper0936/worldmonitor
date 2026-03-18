@@ -31,7 +31,7 @@ export const DEFAULT_PANELS: Record<string, PanelConfig> = {
   africa: { name: 'Africa', enabled: true, priority: 1 },
   latam: { name: 'Latin America', enabled: true, priority: 1 },
   asia: { name: 'Asia-Pacific', enabled: true, priority: 1 },
-  energy: { name: 'Energy & Resources', enabled: true, priority: 1 },
+  philippines: { name: 'Philippines News', enabled: true, priority: 1 },
   gov: { name: 'Government', enabled: true, priority: 1 },
   thinktanks: { name: 'Think Tanks', enabled: true, priority: 1 },
   polymarket: { name: 'Predictions', enabled: true, priority: 1 },
@@ -48,6 +48,8 @@ export const DEFAULT_PANELS: Record<string, PanelConfig> = {
   'etf-flows': { name: 'BTC ETF Tracker', enabled: true, priority: 2 },
   stablecoins: { name: 'Stablecoins', enabled: true, priority: 2 },
   monitors: { name: 'My Monitors', enabled: true, priority: 2 },
+  'taskdock-coding': { name: 'Coding Launchers', enabled: true, priority: 2 },
+  'taskdock-social': { name: 'Social Feed', enabled: true, priority: 2 },
 };
 
 // Map layers for geopolitical view
